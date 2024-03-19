@@ -1090,18 +1090,7 @@ def upload_pdf():
         if file:
           file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
           file.save(file_path)
-          # ctest = {
-          #    "file_path": 'test',
-          #    "court_name": None,
-    
-          #     }
-          # return render_template('summary.html', data=ctest)
-          data = {
-            "key1": "value1",
-             "key2": "value2"
-           }
-          print(data)
-          return render_template('summary.html', data=data)
+          
 
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
@@ -1213,13 +1202,8 @@ def upload_pdf():
             # pdf_text = extract_text_from_pdf(file)
             # pdf_text = "hd fj"
             # num_words = len(pdf_text.split())
-          print(case_info)
-          ctest = {
-             "file_path": 'test',
-             "court_name": 'None',
-    
-              }
-          return render_template('summary.html', data = ctest)
+          
+          return render_template('summary.html', dataFile = case_info)
     
     return render_template('index.html')
 

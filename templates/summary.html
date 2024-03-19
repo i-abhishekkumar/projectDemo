@@ -1,62 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summary</title>
-  </head>
-  <body>
-    <h1>Summary</h1>
-    <p>Number of words in the PDF: {{ num_words }}</p>
-  </body>
-</html> -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summary</title>
-  </head>
-  <body>
-    <h1>Summary</h1>
-    <p>Name: {{ first_name }} {{ last_name }}</p>
-    <p>Number of words in the PDF: {{ num_words }}</p>
-  </body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summary</title>
-  </head>
-  <body>
-    <h1>Summary</h1>
-    <script>
-      fetch("/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // Add any data you want to send here
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Handle the JSON data here
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    </script>
-  </body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -89,7 +30,7 @@
         color: #666;
       }
       .summary {
-        white-space: pre-line;
+        /* white-space: pre-line; */
         overflow: hidden;
         max-height: 100px;
         transition: max-height 0.3s ease;
@@ -112,80 +53,52 @@
   <body>
     <h1>Summary</h1>
 
-    <!-- <div class="card" id="card">
-      <div class="textcard">
-        <div class="textCardtext" id="textCardtext"></div>
-        <div class="pdfLogo"></div>
-      </div>
-    </div> -->
     <script>
       console.log("check");
-      // var data = {{ dataText|tojson }};
-      // console.log(data);
+      var data = {{ dataFile|tojson }};
 
-      // var textCardtext = document.getElementById('textCardtext');
-      // for (var key in data){
-      //   if(Array.isArray(data[key])){
-      //     var values = data[key].join('');
-      //     textCardtext.innerHTML += ``
-      //   }
+      // var data = {{ dataFile|tojson }};
 
-      // }
+      console.log(data);
 
-      // var data2 = {{ data2|tojson }};
-      // console.log(data2);
 
-      // Display the court name
-      // document.body.innerHTML += '<p>File Path: ' + data.file_path + '</p><br><br>';
-      // document.body.innerHTML += '<p>Court Name: ' + data.court_name + '</p>';
-      // // Display the case ID
-      // document.body.innerHTML += '<p>Case ID: ' + data.case_id + '</p>';
-      // // Display the case year
-      // document.body.innerHTML += '<p>Case Year: ' + data.case_year + '</p>';
-      // // Display the judges' names
-      // document.body.innerHTML += '<p>Judges Names: ' + data.judges_names.join(', ') + '</p>';
-      // // Display the appellants
-      // document.body.innerHTML += '<p>Appellants: ' + data.parties_involved.appellants.join(', ') + '</p>';
-      // // Display the respondents
-      // document.body.innerHTML += '<p>Respondents: ' + data.parties_involved.respondents.join(', ') + '</p><br><br>';
-      // // Display the file name
-      // document.body.innerHTML += '<p>Sections : ' + data.sections + '</p>';
-      // document.body.innerHTML += '<p>Acts : ' + data.acts + '</p>';
-      // document.body.innerHTML += '<p>Summary: ' + data.summary + '</p>';
-      //   document.body.innerHTML = `<div class="card">
-      //   <div class="textCard">
-      //     <div class="textCardtext">
-      //       <h2>Case Details</h2>
-      //       <p><strong>Court Name:</strong> ${data.court_name}</p>
-      //       <p><strong>Case ID:</strong>${data.case_id}</p>
-      //       <p><strong>Case Year:</strong>${data.case_year}</p>
-      //       <p>
-      //         <strong>Judges Names:</strong> ${data.judges_names.join(', ')}
-      //       </p>
-      //       <p><strong>Appellants:</strong> ${data.parties_involved.appellants.join(' ')}</p>
-      //       <p>
-      //         <strong>Respondents:</strong> ${data.parties_involved.respondents.join(', ')}
-      //       </p>
-      //     </div>
-      //     <div class="pdfLogo"><a href="">${data.file_path}</a></div>
-      //   </div>
-      //   <div class="summary">
-      //     <strong>Summary:</strong><br />
-      //     ${data.summary}
-      //   </div>
-      //   <p class="show-more" ${onclick="toggleSummary()"}>Show More</p>
-      // </div>`
 
-      // function toggleSummary() {
-      //     var summary = document.querySelector(".summary");
-      //     if (summary.style.maxHeight) {
-      //       summary.style.maxHeight = null;
-      //       document.querySelector(".show-more").innerText = "Show More";
-      //     } else {
-      //       summary.style.maxHeight = summary.scrollHeight + "px";
-      //       document.querySelector(".show-more").innerText = "Show Less";
-      //     }
-      //   }
+
+
+        document.body.innerHTML = `<div class="card">
+        <div class="textCard">
+          <div class="textCardtext">
+            <h2>Case Details</h2>
+            <p><strong>Court Name:</strong> ${data.court_name}</p>
+            <p><strong>Case ID:</strong>${data.case_id}</p>
+            <p><strong>Case Year:</strong>${data.case_year}</p>
+            <p>
+              <strong>Judges Names:</strong> ${data.judges_names.join(', ')}
+            </p>
+            <p><strong>Appellants:</strong> ${data.parties_involved.appellants.join(' ')}</p>
+            <p>
+              <strong>Respondents:</strong> ${data.parties_involved.respondents.join(', ')}
+            </p>
+          </div>
+          <div class="pdfLogo"><a href="${data.file_path} target="_blank" >${data.file_path}</a></div>
+        </div>
+        <div class="summary">
+          <strong>Summary:</strong><br />
+          ${data.summary}
+        </div>
+        <p class="show-more" onclick="toggleSummary()">Show More</p>
+      </div>`
+
+      function toggleSummary() {
+          var summary = document.querySelector(".summary");
+          if (summary.style.maxHeight) {
+            summary.style.maxHeight = null;
+            document.querySelector(".show-more").innerText = "Show More";
+          } else {
+            summary.style.maxHeight = summary.scrollHeight + "px";
+            document.querySelector(".show-more").innerText = "Show Less";
+          }
+        }
     </script>
     <h2>Enter Query</h2>
     <form id="queryForm" method="POST" action="/process_query">
